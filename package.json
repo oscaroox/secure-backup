@@ -1,0 +1,33 @@
+{
+  "name": "secure-backup",
+  "author": "oscar druiventak",
+  "description": "securely backup your mysql, postgres database with asymmetric encryption",
+  "version": "0.1.0",
+  "main": "index.js",
+  "keywords": [
+    "dump",
+    "pg_dump",
+    "mysql_dump",
+    "postgres",
+    "mysql",
+    "backup",
+    "secure-backup",
+    "s3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oscaroox/secure-backup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oscaroox/secure-backup/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash.assign": "^4.2.0",
+    "debug": "^2.6.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.9.0",
+    "standard": "^8.6.0"
+  }
+}
