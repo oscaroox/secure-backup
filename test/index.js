@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 let aws = require('aws-sdk')
-let secureBackup = require('../');
-let path = require('path');
-let s3 = require('../lib/handlers/s3.js');
-let pgHandler = require('../lib/handlers/pg');
+let secureBackup = require('../')
+let path = require('path')
+let s3 = require('../lib/handlers/s3.js')
+let pgHandler = require('../lib/handlers/pg')
 
 let bp = secureBackup({
   pubKeyPath: path.resolve(__dirname, './public.pem'),
@@ -21,3 +21,5 @@ let bp = secureBackup({
     bucket: 'tourip'
   })
 })
+
+console.log(bp)

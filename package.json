@@ -23,8 +23,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash.assign": "^4.2.0",
-    "debug": "^2.6.0"
+    "bluebird": "^3.4.7",
+    "debug": "^2.6.0",
+    "lodash.assign": "^4.2.0"
   },
   "devDependencies": {
     "aws-sdk": "^2.9.0",
