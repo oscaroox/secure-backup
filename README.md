@@ -7,6 +7,9 @@ your backups will never touch your server disk without being encrypted first, yo
 To use this module it is required to have a public/private key pair.
 Secure-backup uses `openssl smime` to encrypt your backups you can decrypt your backups using your private key.
 
+Table of Contents
+=================
+
 * [secure-backup](#secure-backup)
 * [Install](#install)
 * [Requirements](#requirements)
@@ -149,53 +152,52 @@ default: `null`
  })
  ```
 
+#### `pgHandler({options}) / mysqlHandler({options})`
+##### options
+###### user
+postgres/mysql user
+Type: `string` (required)
 
- #### `pgHandler({options}) / mysqlHandler({options})`
- ##### options
- ###### user
- postgres/mysql user
- Type: `string` (required)
+###### password
+postgres/mysql password, can be omitted when using a .pgaccess or .my.cnf file
+Type: `string` (optional)
+default: `null`
 
- ###### password
- postgres/mysql password, can be omitted when using a .pgaccess or .my.cnf file
- Type: `string` (optional)
- default: `null`
+###### database
+what database to backup
+Type: `string` (required)
 
- ###### database
- what database to backup
- Type: `string` (required)
+```js
+let dbHandler = require('secure-backup/lib/handlers/pg') // or mysql require('secure-backup/lib/handlers/mysql')
+...
+ dbHandler({
+     user: 'postgres',
+     password: 'postgres',
+     database: 'my_database'
+ })
+...
+```
 
- ```js
- let dbHandler = require('secure-backup/lib/handlers/pg') // or mysql require('secure-backup/lib/handlers/mysql')
- ...
-  dbHandler({
-      user: 'postgres',
-      password: 'postgres',
-      database: 'my_database'
+#### `s3Handler({options})`
+##### options
+###### handler
+Requires a aws s3 instance
+Type: `Instance` (required)
+
+###### bucket
+s3 bucket name
+Type: `string` (required)
+
+```js
+let s3Handler = require('secure-backup/lib/handlers/s3')
+let aws = require('aws-sdk')
+...
+  s3Handler({
+     handler: new aws.S3(),
+     bucket: 'my_bucket'
   })
 ...
- ```
-
- #### `s3Handler({options})`
- ##### options
- ###### handler
- Requires a aws s3 instance
- Type: `Instance` (required)
-
- ###### bucket
- s3 bucket name
- Type: `string` (required)
-
- ```js
- let s3Handler = require('secure-backup/lib/handlers/s3')
- let aws = require('aws-sdk')
- ...
-   s3Handler({
-      handler: new aws.S3(),
-      bucket: 'my_bucket'
-   })
- ...
- ```
+```
 
 
 Todos
