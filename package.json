@@ -2,7 +2,7 @@
   "name": "secure-backup",
   "author": "oscar druiventak",
   "description": "securely backup your mysql, postgres database with asymmetric encryption",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "keywords": [
     "dump",
