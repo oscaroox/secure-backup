@@ -7,17 +7,14 @@ your backups will never touch your server disk without being encrypted first, yo
 To use this module it is required to have a public/private key pair.
 Secure-backup uses `openssl smime` to encrypt your backups you can decrypt your backups using your private key.
 
-Table of Contents
-=================
-
-   * [secure-backup](#secure-backup)
-   * [Install](#install)
-   * [Requirements](#requirements)
-   * [Quick example](#quick-example)
-   * [Usage](#usage)
-   * [Todos](#todos)
-   * [License](#license)
-
+* [secure-backup](#secure-backup)
+* [Install](#install)
+* [Requirements](#requirements)
+* [Decryption](#decryption)
+* [Quick example](#quick-example)
+* [Usage](#usage)
+* [Todos](#todos)
+* [License](#license)
 
 Install
 ========
@@ -35,6 +32,22 @@ secure-backup needs the following software/files to work properly and must be in
  - nodejs v4+
  - postgres/mysql (required)
  - aws-sdk v2.1.0+ (optional)
+
+
+ Decryption
+ ===========
+
+ example decrypting a gzip compressed backup using `openssl smime`
+ you can omit the `-binary` flag if you didn't use compression.
+ ```cli
+openssl smime -decrypt -in 2017-01-25:23:21:22-mysql_dump.sql.gz.enc -binary -inform DEM inkey private.pem -out mysql_dump.sql.gz
+ ```
+ using gzip to decompress a backup
+```cli
+gzip -d mysql_dump.sql.gz
+```
+if all went well you should be able to read the .sql file and restore your backup.
+
 
 Quick example
 =============
@@ -182,19 +195,6 @@ default: `null`
    })
  ...
  ```
-
- Encryption/Decryption
- ====================
- example decrypting a gzip compressed backup using `openssl smime`
- you can omit the `-binary` flag if you didnt use compression .
- ```cli
-openssl smime -decrypt -in 2017-01-25:23:21:22-mysql_dump.sql.gz.enc -binary -inform DEM inkey private.pem -out mysql_dump.sql.gz
- ```
- using gzip to decompress backup
-```cli
-gzip -d mysql_dump.sql.gz
-```
-if all went well you should be able to read the .sql file and restore your backup.
 
 
 Todos
