@@ -40,7 +40,8 @@ Decryption
 example decrypting a gzip compressed backup using `openssl smime`
 you can omit the `-binary` flag if you didn't use compression.
 ```cli
-openssl smime -decrypt -in 2017-01-25:23:21:22-mysql_dump.sql.gz.enc -binary -inform DEM inkey private.pem -out mysql_dump.sql.gz
+openssl smime -decrypt -in 2017-01-25:23:21:22-mysql_dump.sql.gz.enc \
+-binary -inform DEM inkey private.pem -out mysql_dump.sql.gz
 ```
 using gzip to decompress a backup
 ```cli
