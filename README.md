@@ -7,6 +7,9 @@ your backups will never touch your server disk without being encrypted first, yo
 To use this module it is required to have a public/private key pair.
 Secure-backup uses `openssl smime` to encrypt your backups you can decrypt your backups using your private key.
 
+Table of Contents
+=================
+
 * [secure-backup](#secure-backup)
 * [Install](#install)
 * [Requirements](#requirements)
